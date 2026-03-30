@@ -48,6 +48,7 @@ export class AppHeaderComponent implements OnDestroy {
       'progress-bar': 'Progress Bar',
       'progress-spinner': 'Progress Spinner',
       'input-otp': 'Input OTP',
+      'form-field': 'Form Field',
       icons: 'Icon',
       listbox: 'ListBox',
       'context-menu': 'Context Menu',
