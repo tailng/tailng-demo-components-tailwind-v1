@@ -1,14 +1,38 @@
-<section class="min-h-screen bg-slate-50 p-6 text-slate-900 md:p-10">
-  <div class="mx-auto max-w-5xl">
-    <a routerLink="/home" class="mb-6 inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800">← Back to Home</a>
+<section class="grid w-full max-w-[42rem] gap-3 rounded-xl border border-slate-300 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-900/60">
+  <label
+    class="text-xs font-semibold tracking-[0.01em] text-slate-600 dark:text-slate-400"
+    for="customer-update-textarea"
+  >
+    Customer update
+  </label>
+  <tng-textarea
+    class="w-full"
+    [id]="'customer-update-textarea'"
+    [rows]="4"
+    [placeholder]="'Write a customer-facing summary'"
+    [value]="value()"
+    (valueChange)="onValueChange($event)"
+  ></tng-textarea>
+  <p class="text-xs text-slate-500 dark:text-slate-400">{{ value().length }} characters</p>
+</section>
 
-    <header class="mb-6">
-      <h1 class="text-3xl font-bold tracking-tight">Textarea</h1>
-      <p class="mt-2 text-sm text-slate-600">/textarea</p>
-    </header>
-
-    <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-      <p class="text-slate-700">Multiline text input.</p>
-    </div>
-  </div>
+<br/>
+<br/>
+<section class="grid w-full max-w-[42rem] gap-3 rounded-xl border border-slate-300 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-900/60">
+  <label
+    class="text-xs font-semibold tracking-[0.01em] text-slate-600 dark:text-slate-400"
+    for="customer-update-textarea"
+  >
+    Customer update
+  </label>
+  <tng-textarea
+    class="w-full"
+    [id]="'customer-update-textarea'"
+    [rows]="5"
+    [resize]="'vertical'"
+    [placeholder]="'Write customer-facing notes'"
+    [value]="customerUpdate()"
+    (valueChange)="onCustomerUpdateChange($event)"
+  ></tng-textarea>
+  <p class="text-xs text-slate-500 dark:text-slate-400">{{ customerUpdate().length }} characters</p>
 </section>
