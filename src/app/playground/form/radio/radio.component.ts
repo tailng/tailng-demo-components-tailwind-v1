@@ -1,10 +1,22 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, signal } from '@angular/core';
+import { TngRadioComponent } from '@tailng-ui/components';
+type TailwindBillingPlan = 'starter' | 'pro' | 'enterprise';
 
 @Component({
   selector: 'app-radio',
   standalone: true,
-  imports: [RouterLink],
+  imports: [TngRadioComponent],
   templateUrl: './radio.component.html',
 })
-export class RadioComponent {}
+export class RadioComponent {
+  readonly selectedTailwindBillingPlan = signal<TailwindBillingPlan>('pro');
+
+  onTailwindBillingPlanChange(plan: TailwindBillingPlan, checked: boolean): void {
+    if (!checked) {
+      return;
+    }
+
+    this.selectedTailwindBillingPlan.set(plan);
+  }
+}
+
