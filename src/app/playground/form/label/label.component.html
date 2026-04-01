@@ -1,14 +1,77 @@
-<section class="min-h-screen bg-slate-50 p-6 text-slate-900 md:p-10">
-  <div class="mx-auto max-w-5xl">
-    <a routerLink="/home" class="mb-6 inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800">← Back to Home</a>
-
-    <header class="mb-6">
-      <h1 class="text-3xl font-bold tracking-tight">Label</h1>
-      <p class="mt-2 text-sm text-slate-600">/label</p>
-    </header>
-
-    <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-      <p class="text-slate-700">Accessible form labels.</p>
-    </div>
+<section class="grid w-full max-w-[34rem] gap-4 rounded-2xl border border-slate-300 bg-white p-4 text-slate-900 shadow-sm [--tng-semantic-accent-danger:#dc2626] [--tng-semantic-foreground-primary:#0f172a] [--tng-semantic-foreground-secondary:#64748b] [color-scheme:light]">
+  <div class="grid gap-2">
+    <tng-label forId="doc-cmp-label-overview-tailwind-workspace" [required]="true">
+      Workspace name
+    </tng-label>
+    <input
+      id="doc-cmp-label-overview-tailwind-workspace"
+      type="text"
+      placeholder="North Star"
+      aria-required="true"
+      class="min-h-11 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+    />
+  </div>
+  <div class="inline-flex items-center gap-3">
+    <input id="doc-cmp-label-overview-tailwind-alerts" type="checkbox" class="h-4 w-4 accent-blue-600" />
+    <tng-label forId="doc-cmp-label-overview-tailwind-alerts">Send release alerts</tng-label>
+  </div>
+</section>
+<br/>
+<section class="grid w-full max-w-[34rem] gap-4 rounded-2xl border border-slate-300 bg-white p-4 text-slate-900 shadow-sm [--tng-semantic-accent-danger:#dc2626] [--tng-semantic-foreground-primary:#0f172a] [--tng-semantic-foreground-secondary:#64748b] [color-scheme:light]">
+  <div class="grid gap-2">
+    <tng-label
+      class="block [--tng-semantic-foreground-primary:#0f172a] [--tng-semantic-accent-danger:#dc2626]"
+      forId="doc-cmp-label-styling-tailwind-owner"
+      [required]="true"
+    >
+      Release owner
+    </tng-label>
+    <input
+      id="doc-cmp-label-styling-tailwind-owner"
+      type="text"
+      class="min-h-11 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+    />
+  </div>
+  <div class="grid gap-2">
+    <tng-label
+      class="block [--tng-semantic-foreground-primary:#64748b]"
+      forId="doc-cmp-label-styling-tailwind-archive"
+      [disabled]="true"
+    >
+      Archived environment
+    </tng-label>
+    <input
+      id="doc-cmp-label-styling-tailwind-archive"
+      type="text"
+      disabled
+      class="min-h-11 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-500"
+    />
+  </div>
+</section>
+<br/>
+<section class="grid w-full max-w-[34rem] gap-4 rounded-2xl border border-slate-300 bg-white p-4 text-slate-900 shadow-sm [--tng-semantic-accent-danger:#dc2626] [--tng-semantic-foreground-primary:#0f172a] [--tng-semantic-foreground-secondary:#64748b] [color-scheme:light]">
+  <div class="grid gap-2">
+    <tng-label forId="doc-cmp-label-examples-tailwind-project" [required]="true">Project name</tng-label>
+    <input
+      id="doc-cmp-label-examples-tailwind-project"
+      type="text"
+      aria-required="true"
+      placeholder="Nova"
+      class="min-h-11 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+    />
+  </div>
+  <div class="inline-flex items-center gap-3">
+    <input id="doc-cmp-label-examples-tailwind-alerts" type="checkbox" class="h-4 w-4 accent-blue-600" />
+    <tng-label forId="doc-cmp-label-examples-tailwind-alerts">Send release alerts</tng-label>
+  </div>
+  <div class="grid gap-2">
+    <tng-label class="block [--tng-semantic-foreground-primary:#64748b]" forId="doc-cmp-label-examples-tailwind-archive" [disabled]="true">Archive note</tng-label>
+    <input
+      id="doc-cmp-label-examples-tailwind-archive"
+      type="text"
+      disabled
+      placeholder="Readonly metadata"
+      class="min-h-11 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-500"
+    />
   </div>
 </section>
