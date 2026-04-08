@@ -1,14 +1,64 @@
-<section class="min-h-screen bg-slate-50 p-6 text-slate-900 md:p-10">
-  <div class="mx-auto max-w-5xl">
-    <a routerLink="/home" class="mb-6 inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800">← Back to Home</a>
+<section class="mx-auto grid max-w-[36rem] gap-4 rounded-[1.75rem] border border-slate-200 bg-white p-5 text-slate-900 shadow-sm [color-scheme:light]">
+  <div class="grid gap-1">
+    <span class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Planet picker</span>
+    <p class="m-0 text-sm text-slate-600">Wrapper-first multi-selection with Tailwind utilities.</p>
+  </div>
 
-    <header class="mb-6">
-      <h1 class="text-3xl font-bold tracking-tight">Multiselect</h1>
-      <p class="mt-2 text-sm text-slate-600">/multiselect</p>
-    </header>
+  <tng-multiselect
+    class="block w-full min-w-0
+      [--tng-select-radius:1rem]
+      [--tng-select-trigger-py:0.95rem]
+      [--tng-select-trigger-px:1rem]
+      [--tng-select-bg:#ffffff]
+      [--tng-select-fg:#0f172a]
+      [--tng-select-brand:#0f766e]
+      [--tng-select-focus-ring:#0f766e]"
+    [options]="planets"
+    [value]="selectedPlanets()"
+    (valueChange)="onValueChange($event)"
+    [getOptionValue]="getPlanetValue"
+    [getOptionLabel]="getPlanetLabel"
+    placeholder="Select planets"
+  ></tng-multiselect>
+</section>
+<br/>
+<section class="grid w-full gap-4 rounded-[1.75rem] border border-slate-200 bg-white p-5 text-slate-900 shadow-sm [color-scheme:light]">
+  <div class="grid gap-1">
+    <span class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Dual tag groups</span>
+    <p class="m-0 text-sm text-slate-600">
+      Two independent multiselects with Tab-based keyboard handoff between controls.
+    </p>
+  </div>
 
-    <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-      <p class="text-slate-700">Multiple-choice listbox.</p>
+  <div class="grid gap-4 lg:grid-cols-2">
+    <div class="grid gap-2 rounded-xl border border-slate-100 bg-slate-50 p-3">
+      <p class="m-0 text-sm font-semibold text-slate-600">Tag group A</p>
+      <tng-multiselect
+        class="block w-full min-w-0 [--tng-semantic-background-canvas:#ffffff] [--tng-semantic-background-surface:#f8fafc] [--tng-semantic-border-subtle:#d8e2ef] [--tng-semantic-border-strong:#94a3b8] [--tng-semantic-foreground-primary:#0f172a] [--tng-semantic-foreground-secondary:#475569] [--tng-semantic-foreground-muted:#64748b] [--tng-semantic-accent-brand:#0f766e] [--tng-semantic-focus-ring:#0f766e] [--tng-select-radius:1rem] [--tng-select-trigger-py:0.625rem] [--tng-select-trigger-px:0.875rem] [--tng-select-option-py:0.625rem] [--tng-select-option-px:0.875rem] [--tng-select-bg:#ffffff] [--tng-select-surface:#f8fafc] [--tng-select-border:#d8e2ef] [--tng-select-border-strong:#94a3b8] [--tng-select-fg:#0f172a] [--tng-select-muted:#64748b] [--tng-select-brand:#0f766e] [--tng-select-focus-ring:#0f766e]"
+        [options]="tagOptions"
+        [value]="tagValueA()"
+        (valueChange)="onTagAValueChange($event)"
+        [getOptionValue]="getTagValue"
+        [getOptionLabel]="getTagLabel"
+        placeholder="Select tags"
+        aria-label="Tag group A multiselect"
+      ></tng-multiselect>
+      <p class="m-0 text-xs text-slate-600">Selected: {{ tagSummaryA() }}</p>
+    </div>
+
+    <div class="grid gap-2 rounded-xl border border-slate-100 bg-slate-50 p-3">
+      <p class="m-0 text-sm font-semibold text-slate-600">Tag group B</p>
+      <tng-multiselect
+        class="block w-full min-w-0 [--tng-semantic-background-canvas:#ffffff] [--tng-semantic-background-surface:#f8fafc] [--tng-semantic-border-subtle:#d8e2ef] [--tng-semantic-border-strong:#94a3b8] [--tng-semantic-foreground-primary:#0f172a] [--tng-semantic-foreground-secondary:#475569] [--tng-semantic-foreground-muted:#64748b] [--tng-semantic-accent-brand:#0f766e] [--tng-semantic-focus-ring:#0f766e] [--tng-select-radius:1rem] [--tng-select-trigger-py:0.625rem] [--tng-select-trigger-px:0.875rem] [--tng-select-option-py:0.625rem] [--tng-select-option-px:0.875rem] [--tng-select-bg:#ffffff] [--tng-select-surface:#f8fafc] [--tng-select-border:#d8e2ef] [--tng-select-border-strong:#94a3b8] [--tng-select-fg:#0f172a] [--tng-select-muted:#64748b] [--tng-select-brand:#0f766e] [--tng-select-focus-ring:#0f766e]"
+        [options]="tagOptions"
+        [value]="tagValueB()"
+        (valueChange)="onTagBValueChange($event)"
+        [getOptionValue]="getTagValue"
+        [getOptionLabel]="getTagLabel"
+        placeholder="Select tags"
+        aria-label="Tag group B multiselect"
+      ></tng-multiselect>
+      <p class="m-0 text-xs text-slate-600">Selected: {{ tagSummaryB() }}</p>
     </div>
   </div>
 </section>
