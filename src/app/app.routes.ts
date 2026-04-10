@@ -138,6 +138,11 @@ export const routes: Routes = [
       import('./playground/form/textarea/textarea.component').then((m) => m.TextareaComponent),
   },
   {
+    path: 'datepicker',
+    loadComponent: () =>
+      import('./playground/form/datepicker/datepicker.component').then((m) => m.DatepickerComponent),
+  },
+  {
     path: 'icons',
     loadComponent: () =>
       import('./playground/utility/icons/icons.component').then((m) => m.IconsComponent),
