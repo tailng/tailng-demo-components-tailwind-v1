@@ -1,26 +1,20 @@
-import { Component, signal } from '@angular/core';
-import { TngInputComponent } from '@tailng-ui/components';
+import { Component } from '@angular/core';
+import { TngDatepickerComponent } from '@tailng-ui/components';
+
+import { defaultDatepickerDateAdapter, type TngDateAdapter } from '@tailng-ui/primitives';
+
+const reportingAdapter: TngDateAdapter<Date> = {
+  ...defaultDatepickerDateAdapter,
+  format: (date, format, locale) => format === 'month-year' ? '2024 · APR' : defaultDatepickerDateAdapter.format(date, format, locale),
+  parse: (text, locale) => defaultDatepickerDateAdapter.parse(text, locale),
+};
 
 @Component({
   selector: 'app-datepicker',
   standalone: true,
-  imports: [TngInputComponent],
+  imports: [TngDatepickerComponent],
   templateUrl: './datepicker.component.html',
 })
 export class DatepickerComponent {
-  readonly componentDatepickerOverviewTailwindValue = signal('2026-04-10');
-  readonly componentDatepickerOverviewTailwindRangeStart = signal('2026-04-10');
-  readonly componentDatepickerOverviewTailwindRangeEnd = signal('2026-04-21');
-
-  onComponentDatepickerOverviewTailwindValueChange(nextValue: string): void {
-    this.componentDatepickerOverviewTailwindValue.set(nextValue);
-  }
-
-  onComponentDatepickerOverviewTailwindRangeStartChange(nextValue: string): void {
-    this.componentDatepickerOverviewTailwindRangeStart.set(nextValue);
-  }
-
-  onComponentDatepickerOverviewTailwindRangeEndChange(nextValue: string): void {
-    this.componentDatepickerOverviewTailwindRangeEnd.set(nextValue);
-  }
+  protected readonly reportingAdapter = reportingAdapter;
 }
