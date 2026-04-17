@@ -1,5 +1,32 @@
 <header class="app-header">
   <h1>Playground</h1>
+
+  <div class="theme-controls" aria-label="Theme controls">
+    <label class="theme-control">
+      <span>Mode</span>
+      <select
+        [value]="selectedThemeMode()"
+        (change)="onThemeModeChange($any($event.target).value)"
+        aria-label="Theme mode"
+      >
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </label>
+
+    <label class="theme-control">
+      <span>Theme</span>
+      <select
+        [value]="selectedThemeFamily()"
+        (change)="onThemeFamilyChange($any($event.target).value)"
+        aria-label="Theme preset"
+      >
+        @for (theme of themeFamilies; track theme) {
+          <option [value]="theme">{{ toThemeLabel(theme) }}</option>
+        }
+      </select>
+    </label>
+  </div>
 </header>
 
 <div class="demo-breadcrumb-group">

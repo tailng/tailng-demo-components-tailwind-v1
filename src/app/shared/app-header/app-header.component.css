@@ -7,6 +7,12 @@
   margin: 0 auto;
   padding: clamp(1rem, 4vw, 1.75rem) 1.25rem 0;
   color: var(--app-ink);
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .app-header h1 {
@@ -38,6 +44,38 @@
   border-radius: 999px;
   background: linear-gradient(90deg, var(--app-accent), var(--app-accent-hover));
   opacity: 0.85;
+}
+
+.theme-controls {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.theme-control {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #57534e;
+}
+
+.theme-control select {
+  min-width: 8.5rem;
+  border: 1px solid rgba(120, 113, 108, 0.35);
+  border-radius: 0.5rem;
+  background: #fff;
+  color: #1c1917;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  padding: 0.45rem 0.65rem;
+}
+
+.theme-control select:focus-visible {
+  outline: 2px solid rgba(15, 118, 110, 0.45);
+  outline-offset: 2px;
 }
 
 .demo-breadcrumb-group {
